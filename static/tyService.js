@@ -25,7 +25,7 @@ var tyService = new function () {
       },
       success: function (result) {
         console.log('commonRequest success url:' + url + ' 结果：' + JSON.stringify(result))
-        if (result && result.code === 100) {
+        if (result && result.errcode === 0) {
           if (callback) {
             callback(true, result)
           }
@@ -37,6 +37,9 @@ var tyService = new function () {
       },
       error: function (XMLHttpRequest, textStatus, errorThrown) {
         console.log('commonRequest error url:' + url + ' 失败：' + XMLHttpRequest.status)
+        console.log(XMLHttpRequest)
+        console.log(textStatus)
+        console.log(errorThrown)
         if (callback) {
           callback(false)
         }
