@@ -37,20 +37,17 @@ var tyService = new function () {
       },
       error: function (XMLHttpRequest, textStatus, errorThrown) {
         console.log('commonRequest error url:' + url + ' 失败：' + XMLHttpRequest.status)
-        console.log(XMLHttpRequest)
-        console.log(textStatus)
-        console.log(errorThrown)
         if (callback) {
           callback(false)
         }
       }
     })
   }
-  // 获取微信AccessToken（实际开发中，应该由后台获取AccessToken）
+  // 获取微信AccessToken（实际开发中，应该由后台获取AccessToken，这些代码都是范例，本项目中不会走到这里的）
   this.getWXConfigAccessToken = function (appid, secret, callback) {
     appId = appid
     console.warn('getWXConfigAccessToken')
-    this.commonRequest('GET', true, (accessTokenUrl + '?grant_type=client_credential' + '&appid=' + appid + '&secret=' + secret), '', function (success, result) {
+    this.commonRequest('GET', false, (accessTokenUrl + '?grant_type=client_credential' + '&appid=' + appid + '&secret=' + secret), '', function (success, result) {
       if (success) {
         if (callback) {
           callback(true, result.data)
@@ -63,10 +60,10 @@ var tyService = new function () {
     })
   }
 
-  // 获取微信jsapi_ticket（实际开发中，应该由后台获取jsapi_ticket）
+  // 获取微信jsapi_ticket（实际开发中，应该由后台获取jsapi_ticket，这些代码都是范例，本项目中不会走到这里的）
   this.getWXConfigTicket = function (accessToken, callback) {
     console.warn('getWXConfigTicket')
-    this.commonRequest('GET', true, (jsapiTicketUrl + '?type=jsapi' + '&access_token=' + accessToken), '', function (success, result) {
+    this.commonRequest('GET', false, (jsapiTicketUrl + '?type=jsapi' + '&access_token=' + accessToken), '', function (success, result) {
       if (success) {
         if (callback) {
           callback(true, result.data)
@@ -79,7 +76,7 @@ var tyService = new function () {
     })
   }
 
-  // 获取微信config签名（实际开发中，应该由后台实现生成签名的逻辑）
+  // 获取微信config签名（实际开发中，应该由后台实现生成签名的逻辑，这些代码都是范例，本项目中不会走到这里的）
   this.getWXConfigSignature = function (ticket, noncestr, timestamp, pageUrl, callback) {
     console.warn('getWXConfigSignature:' + pageUrl)
     var str = 'jsapi_ticket=' + ticket + '&noncestr=' + noncestr + '&timestamp=' + timestamp + '&url=' + pageUrl
@@ -98,7 +95,7 @@ var tyService = new function () {
     }
   }
 
-  // SHA-1算法（实际开发中，应该由后台实现SHA-1算法）
+  // SHA-1算法（实际开发中，应该由后台实现SHA-1算法，这些代码都是范例，本项目中不会走到这里的）
   this.sha1 = function (str) {
     hexSha1(str)
 

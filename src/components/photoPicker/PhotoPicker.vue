@@ -41,7 +41,8 @@ export default {
       // 清空图片列表
       this.photoList = []
       // android使用微信js接口选图片
-      if (this.isAndroid || this.iosWeixin) {
+      // if (this.isAndroid || this.iosWeixin) {
+      if (this.iosWeixin) {
         console.warn('pickPhoto1')
         this.showWeixinPicker()
       } else {

@@ -1,16 +1,16 @@
 <template>
   <div class="demo">
     <div class="title">
-      TYPhotoPicker5
+      TYPhotoPicker
     </div>
     <div class="tip">
       1. 能够在微信之外运行，但主要还是为了在微信页面内调用相册选择器而设计的 <br>
-      2. 在微信中使用，由于iOS平台中的图片转码缓慢，所以弃用调用微信js，通过设置PhotoPicker.iosWeixin也能够调用微信JS <br>
-      关注这个微信号：关注后才允许调用weixin-js-sdk <br>
-      <img :src="qrImg" width="200" height="200" alt=""> <br>
-      因为测试账号限制了只允许被100人关注, 当发现不能在微信中运行的时候请来到下面，自行申请测试账号， <br>
-      申请微信测试公众号：https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login <br>
-      申请账号之后填写测试域名（一个测试账号允许有一个域名调用weixin-js-sdk），并调整wxJsComponen中对appid、secret的赋值
+      2. 在微信中使用，由于iOS平台中的图片转码缓慢，所以弃用调用微信js<br>
+      3. 调整PhotoPicker.isIosWeixin是够调用微信JS的，要看调用微信JS的效果，可以通过Android识别以下二维码，页面打开后在最下方可以看到 <br>
+      <img :src="qrImg" width="200" height="200"> <br>
+      4. 本组件的依赖有weixin-js-sdk、exif-js、mint-ui，调用之前要先安装
+      5.实际开发中可以先申请申请测试账号做调试，当然获取AccessToken、jsapi_ticket和申请签名的活，必须还是要服务器来做，前端实现不了 <br>
+      &nbsp;&nbsp;申请微信测试公众号地址：https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login <br>
     </div>
     <div class="item">
       <div class="question">
@@ -42,7 +42,7 @@ export default {
       imgs: [], // 界面展示的图片本地地址
       imgData: [], // 需要上传图片的数据
       // http://mmbiz.qpic.cn/mmbiz_jpg/52qI3slqMgEQ0sucicop1LAYAjTTc7GBecpTxGYn6jBXpw3P8xoh2O1AwsPrAgHzSqmgk8EQnjicAhm0OTJ2M9tA/0
-      qrImg: require('../assets/测试公众号二维码.jpg')
+      qrImg: require('../assets/1512745266.png')
     }
   },
   components: {

@@ -19,7 +19,7 @@ var wxJsComponent = new function () {
       var nonceStr = configData.nonceStr
       var signature = configData.signature
       wx.config({
-        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         appId: appid, // 必填，企业号的唯一标识，此处填写企业号corpid
         timestamp: timestamp, // 必填，生成签名的时间戳
         nonceStr: nonceStr, // 必填，生成签名的随机串
@@ -94,15 +94,6 @@ var wxJsComponent = new function () {
     var signURL = pageUrl.replace(/&/g, '%26') // 给链接中所有的&uri编码 encodeURIComponent
     var appid = 'wxcfd35355d34a1894'
     var secret = 'c99b4935724d9b4f3c725a94d59a7640'
-    // 获取AccessToken(有效期7200秒，每日200次): 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=APPID&secret=APPSECRET'
-    // 用AccessToken获取tikcet(有效期7200秒)： 'https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=ACCESS_TOKEN&type=jsapi'
-    // 用用AccessToken获取tikcet生成signature：
-    // noncestr=Wm3WZYTPz0wzccnW
-    // jsapi_ticket=sM4AOVdWfPE4DxkXGEs8VMCPGGVi4C3VM0P37wVUCFvkVAy_90u5h9nbSlYy3-Sl-HhTdfl2fzFy1AOcHKP7qg
-    // timestamp=1414587457
-    // url=http://mp.weixin.qq.com?params=value
-    // jsapi_ticket=sM4AOVdWfPE4DxkXGEs8VMCPGGVi4C3VM0P37wVUCFvkVAy_90u5h9nbSlYy3-Sl-HhTdfl2fzFy1AOcHKP7qg&noncestr=Wm3WZYTPz0wzccnW&timestamp=1414587457&url=http://mp.weixin.qq.com?params=value
-    // 进行sha1签名: 得到0f9de62fce790f9a083d5c99e95740ceb90c27ed
     var accessToken = ''
     tyService.getWXConfigAccessToken(appid, secret, function (isSuccess, result) {
       if (isSuccess) {
