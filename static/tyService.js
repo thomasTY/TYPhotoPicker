@@ -2,7 +2,7 @@
 
 var $ = require('jquery')
 
-var tyService = function () {
+var tyService = new function () {
   var appId = ''
   // 接口前半段
   const baseUrl = 'https://api.weixin.qq.com'
