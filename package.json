@@ -14,8 +14,8 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
-    "ajax": "^0.0.4",
     "exif-js": "^2.3.0",
+    "jquery": "^3.2.1",
     "vue": "^2.4.2",
     "vue-router": "^3.0.1",
     "weixin-js-sdk": "^1.2.0"
