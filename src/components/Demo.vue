@@ -1,7 +1,7 @@
 <template>
   <div class="demo">
     <div class="title">
-      TYPhotoPicker3
+      TYPhotoPicker4
     </div>
     <div class="tip">
       1. 能够在微信之外运行，但主要还是为了在微信页面内调用相册选择器而设计的 <br>
