@@ -50,7 +50,7 @@ var tyService = new function () {
   this.getWXConfigAccessToken = function (appid, secret, callback) {
     appId = appid
     console.warn('getWXConfigAccessToken')
-    this.commonRequest('GET', false, (accessTokenUrl + '?grant_type=client_credential' + '&appid=' + appid + '&secret=' + secret), '', function (success, result) {
+    this.commonRequest('GET', true, (accessTokenUrl + '?grant_type=client_credential' + '&appid=' + appid + '&secret=' + secret), '', function (success, result) {
       if (success) {
         if (callback) {
           callback(true, result.data)
@@ -66,7 +66,7 @@ var tyService = new function () {
   // 获取微信jsapi_ticket（实际开发中，应该由后台获取jsapi_ticket）
   this.getWXConfigTicket = function (accessToken, callback) {
     console.warn('getWXConfigTicket')
-    this.commonRequest('GET', false, (jsapiTicketUrl + '?type=jsapi' + '&access_token=' + accessToken), '', function (success, result) {
+    this.commonRequest('GET', true, (jsapiTicketUrl + '?type=jsapi' + '&access_token=' + accessToken), '', function (success, result) {
       if (success) {
         if (callback) {
           callback(true, result.data)
