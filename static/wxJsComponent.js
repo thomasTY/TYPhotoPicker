@@ -1,7 +1,7 @@
 'use strict'
 // 微信js sdk鉴权组件
 var wx = require('weixin-js-sdk')
-var tyService = require('./tyService.js')
+var {tyService} = require('./tyService.js')
 var EXIF = require('exif-js')
 var MegaPixImage = require('./megapic-image.js')
 
