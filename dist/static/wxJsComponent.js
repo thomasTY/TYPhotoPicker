@@ -1,13 +1,13 @@
 'use strict'
 // 微信js sdk鉴权组件
 var wx = require('weixin-js-sdk')
-var tyService = require('./tyService.js')
+import tyService from './tyService.js'
 var EXIF = require('exif-js')
 var MegaPixImage = require('./megapic-image.js')
 
 var wxJsComponent = new function () {
   // 记录配置成功的信息历史
-  this.configHistory = new Map()
+  this.configHistory = {}
 
   // 获取访问接口授权
   this.initConfig = function (configData, callback) {
@@ -58,14 +58,14 @@ var wxJsComponent = new function () {
             console.log('wxJSConfig ios has history:' + pageKey)
             return true
           } else {
-            this.configHistory.delete(pageKey)
+            this.configHistory[pageKey] = null
           }
         }
         break
       }
     } else {
       // android
-      var pageConfig2 = this.configHistory.get(pageUrl)
+      var pageConfig2 = this.configHistory[pageKey]
       if (pageConfig2 && pageConfig2.lastTime && pageConfig2.success) {
         // 如果这个页面已经获取过config
         if ((currentTime - pageConfig2.lastTime) < 60 * 60 * 1.5) {
@@ -73,7 +73,7 @@ var wxJsComponent = new function () {
           console.log('wxJSConfig android has history:' + pageUrl)
           return true
         } else {
-          this.configHistory.delete(pageUrl)
+          this.configHistory[pageKey] = null
         }
       }
     }
@@ -131,13 +131,13 @@ var wxJsComponent = new function () {
               var pageConfig = {}
               pageConfig.success = true
               pageConfig.lastTime = Math.round(new Date().getTime() / 1000)
-              that.configHistory.set(pageUrl, pageConfig)
+              that.configHistory[pageUrl] = pageConfig
             }
           } else {
             // 如果签名失败，删除记录
-            var pageConfig2 = that.configHistory.get(pageUrl)
+            var pageConfig2 = that.configHistory[pageUrl]
             if (pageConfig2 && pageUrl) {
-              that.configHistory.delete(pageUrl)
+              that.configHistory[pageUrl] = null
             }
           }
           // 调用回调
@@ -416,4 +416,4 @@ var wxJsComponent = new function () {
   }
 }
 
-module.exports = wxJsComponent
+export default wxJsComponent

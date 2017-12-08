@@ -6,6 +6,7 @@
 </template>
 
 <script>
+// var wxJsComponent = require('../../../static/wxJsComponent.js')
 import wxJsComponent from '../../../static/wxJsComponent.js'
 import {Toast} from 'mint-ui'
 

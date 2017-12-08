@@ -5,11 +5,11 @@ var $ = require('jquery')
 var tyService = new function () {
   var appId = ''
   // 接口前半段
-  const baseUrl = 'https://api.weixin.qq.com'
+  var baseUrl = 'https://api.weixin.qq.com'
   // 获取AccessToken
-  const accessTokenUrl = '/cgi-bin/token'
+  var accessTokenUrl = '/cgi-bin/token'
   // 获取jsapi_ticket
-  const jsapiTicketUrl = '/cgi-bin/ticket/getticket'
+  var jsapiTicketUrl = '/cgi-bin/ticket/getticket'
   // 发送请求
   this.commonRequest = function (requestType, isAsync, addtionalUrl, jsonData, callback) {
     var url = baseUrl + addtionalUrl
