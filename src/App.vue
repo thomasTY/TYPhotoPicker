@@ -5,8 +5,19 @@
 </template>
 
 <script>
+import eruda from 'eruda'
+
 export default {
-  name: 'app'
+  name: 'app',
+  created: function () {
+    // 日志查看
+    var el = document.createElement('div')
+    document.body.appendChild(el)
+    eruda.init({
+      container: el,
+      tool: ['console', 'elements']
+    })
+  }
 }
 </script>
 
