@@ -8,9 +8,9 @@
       2. 在微信中使用，由于iOS平台中的图片转码缓慢，所以弃用调用微信js<br>
       3. 调整PhotoPicker.isIosWeixin是够调用微信JS的，要看调用微信JS的效果，可以通过Android识别以下二维码，页面打开后在最下方可以看到 <br>
       <img :src="qrImg" width="200" height="200"> <br>
-      4. 本组件的依赖有weixin-js-sdk、exif-js、mint-ui，调用之前要先安装
-      5.实际开发中可以先申请申请测试账号做调试，当然获取AccessToken、jsapi_ticket和申请签名的活，必须还是要服务器来做，前端实现不了 <br>
-      &nbsp;&nbsp;申请微信测试公众号地址：https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login <br>
+      4. 本组件的依赖有weixin-js-sdk、exif-js、mint-ui，调用之前要先安装 <br>
+      5. 实际开发中可以先申请申请测试账号做调试，当然获取AccessToken、jsapi_ticket和申请签名的活，必须还是要服务器来做，前端实现不了 <br>
+      6. 申请微信测试公众号地址：https://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login <br>
     </div>
     <div class="item">
       <div class="question">
