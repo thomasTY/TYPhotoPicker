@@ -227,7 +227,4 @@ var tyService = new function () {
   }
 }
 
-module.exports = {
-  tyService: tyService,
-  $: $
-}
+export default tyService
