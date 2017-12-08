@@ -16,6 +16,7 @@
   "dependencies": {
     "exif-js": "^2.3.0",
     "jquery": "^3.2.1",
+    "mint-ui": "^2.2.12",
     "vue": "^2.4.2",
     "vue-router": "^3.0.1",
     "weixin-js-sdk": "^1.2.0"
